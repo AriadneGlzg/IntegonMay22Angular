@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td>Numero1</td>
+    <td>Numero2</td>
+    <td>Operacion</td>
+    <td>Resultado</td>
+  </tr>
+  <tr>
+    <td><p>{{num1}}</p></td>
+    <td><p>{{num2}}</p></td>
+    <td><p>{{operacion}}</p></td>
+    <td><b><p>{{resultado}}</p></b></td><!--<p>{{calculo()}}</p>-->
+  </tr>
+</table>
+
+<button (click)="emitirEvento()">Calcular/Emit</button>
+<button (click)="calculo()">Calcular</button>  <!--<button (click)="buttonClicked.emit()">Calcular</button>-->
+

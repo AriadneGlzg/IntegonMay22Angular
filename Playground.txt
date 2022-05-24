@@ -1,0 +1,95 @@
+  type Animal = 'foca'|'tortuga'
+
+  //const animalito : Animal ="Gatto";
+  const animalito2 : Animal ="foca";
+
+  enum Estaciones {primavera=100,verano=200, otono=300, invierno=400};
+  let estaciones1 = Estaciones.primavera;
+  let estaciones2 : Estaciones;
+  estaciones2 = 5;
+  //console.log(estaciones1);
+  //console.log(estaciones2);
+  function imprimeMensaje(mensaje:string): void{
+      console.log(mensaje);
+  }
+
+  function suma(num1:number, num2:number):number{
+      return num1+num2;
+  }
+
+  //imprimeMensaje('hello♥');
+  //console.log(suma(8,2));
+
+function evaluaMaximo(numeros: number[]) : void{
+    let max: number = numeros[0];
+    numeros.forEach(function(num){
+        if(num>=max){
+            max=num;
+        }
+    })        
+    console.log(max);
+}
+
+function pruebaOpcional(cad1:string,cad2?:string):string{ //los parametros opcionales deben de ir forsozamente al final
+    if(!cad2){
+        cad2= "♥ ♥ ♥";
+    }
+    return `${cad1} ${cad2}`;
+}
+
+function saludaAlaGente(saludo:string,...personas:string[]) : string{
+    return saludo + ',' +personas.join('y'+'!');
+}
+//evaluaMaximo([-1,-2,-0.01,-300,-0.9,-1000,-3,-108]);
+//console.log(pruebaOpcional("hello", "Paola"));
+//console.log(saludaAlaGente("Bonito dia ♥","paola", "luna", "miguel"));
+
+const newItem = 3;
+const oldArray = [1, 2];
+const newArray = [...oldArray, newItem];
+const newArray2 = [oldArray, newItem];
+
+console.log(`Con spread: ${newArray[0]}`);
+console.log(`Sin spread: ${newArray2[0]}`);
+
+//clase cuenta bancaria numero de cuenta y saldo 
+//clase tarjeta de credito subclase de cuenta bancaria tasa de interes 
+//clase pagare subclase de cuenta bancaria prpieedad plazo
+//crear un metodo generico que recorra objetos de un arreglo tipo generico probar el metodo mandandole arreglos de ojetos pagare y tarheta de credito
+
+class CuentaBancaria {
+  public NumCuenta : string;
+  public Saldo : number;
+
+  constructor(numcuenta: string,saldo:number){
+    this.NumCuenta = numcuenta;
+    this.Saldo = saldo;
+  }
+}
+
+class TarjetaCredito extends CuentaBancaria {
+    public TasaInteres : number;
+    constructor(numcuenta:string, saldo:number, tasainteres:number){
+        super(numcuenta, saldo);
+        this.TasaInteres = tasainteres;
+    }
+}
+
+class Pagare extends CuentaBancaria {
+    public Plazo : number;
+    constructor(numcuenta:string, saldo:number, plazo:number){
+        super(numcuenta, saldo);
+        this.Plazo = plazo;
+    }
+}
+function myMethod<T>(arreglo: T[]): void {
+  arreglo.forEach(function(item){
+    console.log(item);
+  });
+}
+
+let a1 : TarjetaCredito[] = [ new TarjetaCredito("NC12345678C",2500,-0.03),new TarjetaCredito("NC12345678A",1500,-0.05),new TarjetaCredito("NC12345678B",5000,-0.06)];
+let a2 : Pagare[] = [ new Pagare("NC12345678",2200,3),new Pagare("NC12345678A",150,5), new Pagare("NC12345678B",8000,10)];
+
+myMethod<Pagare>(a2);
+myMethod<TarjetaCredito>(a1);

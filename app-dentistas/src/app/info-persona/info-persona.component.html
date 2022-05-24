@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <td>Id/Indice</td>
+    <td>Nombre</td>
+    <td>Ciudad</td>
+    <td>Ubicacion</td>
+    <td>Moneda</td>
+  </tr>
+  <tr *ngFor="let persona of personas | sort:'modena' ; index as indice"> <!--<tr *ngFor="let persona of personas | sort:'modena' ; index as indice">-->
+    <td><p>{{persona.id}}/{{indice | percent}}</p></td>
+    <td><p>{{persona.nombre}}</p></td>
+    <td><p>{{persona.ciudad | uppercase}}</p></td>
+    <td [ngSwitch]="persona.ciudad">
+      <p *ngSwitchCase="'Morelia'">Local</p>
+      <p *ngSwitchCase="'Gatolandia'">Extraterrestre</p>
+      <p *ngSwitchDefault>Foraneo</p>
+    </td>
+    <td><p>{{persona.moneda | currency}}</p></td>
+    <td><a [routerLink]="['detallepersona',indice,persona.nombre]">detalle</a></td>
+
+  </tr>
+</table>
+
+<p>Nombre: {{nombre}}</p>
+<p>Apellido: {{apellido}}</p>
+

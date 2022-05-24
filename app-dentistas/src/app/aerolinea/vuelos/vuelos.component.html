@@ -1,0 +1,37 @@
+<h4>Registro de Vuelos</h4>
+<form (ngSubmit)="RegistrarVuelos()">
+  Numero de vuelo:<input type="number" name="numVuelo" [(ngModel)]="vuelo.NumeroVuelo">
+  Origen:<input type="text" name="origen_" [(ngModel)]="vuelo.Origen">
+  Destino:<input type="text" name="destino_" [(ngModel)]="vuelo.Destino">
+  Fecha:<input type="text" name="fecha_" [(ngModel)]="vuelo.Fecha">
+  Horario:<input type="text" name="horario" [(ngModel)]="vuelo.Horario">
+  <button type="submit">Registrar</button>
+</form>
+<div class ="centrado">
+  <table>
+    <thead>
+      <tr>
+        <th>No.Vuelo</th>
+        <th>Origen</th>
+        <th>Destino</th>
+        <th>Fecha</th>
+        <th>Horario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of vuelos">
+        <td><p>{{v.NumeroVuelo}}</p></td>
+        <td><p>{{v.Origen}}</p></td>
+        <td><p>{{v.Destino}}</p></td>
+        <td><p>{{v.Fecha}}</p></td>
+        <td><p>{{v.Horario}}</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
